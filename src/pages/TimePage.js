@@ -30,7 +30,7 @@ const TimePage = () => {
             </h1>
 
             <ul className='time-page__list'>
-                <li>Привет! {email} {name}!</li>
+                <li>Привет,</li>
                 <li>{email} {name}!</li>
                 <li> Сейчас {today}.</li>
             </ul>

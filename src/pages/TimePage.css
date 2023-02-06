@@ -7,7 +7,7 @@
 
     font-family: 'Inter', sans-serif;
     color: #F5F5F7;
-    background-image: url(../assets/img/bg-img.png);
+    background-image: url(../assets/img/bg-img.svg);
     background-repeat: no-repeat;
     background-position: right;
 }
@@ -34,7 +34,6 @@
     line-height: 34px;
     color: #8287A3;
 }
-
 
 @media (max-width: 768px) {
     .time-page {
