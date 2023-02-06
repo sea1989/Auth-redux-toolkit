@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Inter',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+.App {
+  margin: 0 auto;
+  padding: 0;
+  color: #13446d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.btn-standart {
+  padding: 14px 30px;
+  background-color: #1F264A;
+  border-radius: 20px;
+  border: 2px solid #BD9A7A;
+  width: fit-content;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.7971px;
+  line-height: 23px;
+  color: #F5F5F7;
+  cursor: pointer;
+}
+
+.btn-standart:hover {
+background-color: #545A75;
+}
+
+.icon-pass {
+  display: none!important;
+}
+
+.field-pass:hover .icon-pass {
+display: block!important;
+}
+
+.ava-img {
+  width: 100%;
+}

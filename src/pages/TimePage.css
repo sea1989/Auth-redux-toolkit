@@ -1,0 +1,45 @@
+.time-page {
+    background-color: #1F264A;
+    padding: 290px 170px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Inter', sans-serif;
+    color: #F5F5F7;
+    background-image: url(../assets/img/bg-img.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.time-page__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 58px;
+    line-height: 70px;
+    max-width: 780px;
+}
+
+.time-page__title span {
+    color: #BD9A7A;
+}
+
+.time-page__list {
+    list-style: none;
+    padding: 20px 0 60px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    color: #8287A3;
+}
+
+
+@media (max-width: 768px) {
+    .time-page {
+        padding: 20px;
+        background-image: none;
+        height: 100vh;
+    }
+}
