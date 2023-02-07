@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route exact path="/time" element={<TimePage />} />
         <Route exact path="/" element={<LoginPage />} />
+        <Route exact path="/time" element={<TimePage />} />
         <Route exact path="/register" element={<RegisterPage />} />
       </Routes>
 

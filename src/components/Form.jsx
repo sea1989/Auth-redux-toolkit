@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import { IconButton, InputAdornment } from '@material-ui/core';
+
+import Invisible from '../assets/img/invisible.svg';
+import Visible from '../assets/img/visible.svg'
 
 const Form = ({ title, handleClick }) => {
     const [login, setLogin] = useState('');
@@ -11,10 +14,13 @@ const Form = ({ title, handleClick }) => {
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const onClick = useCallback(() => handleClick({ login: login, password: pass }), [handleClick, login, pass]);
+    const onChangeLog = useCallback((e) => setLogin(e.target.value), []);
+    const onChangePass = useCallback((e) => setPass(e.target.value), []);
+
     return (
 
         <Box component="form" sx={{ mt: 1 }}>
-
             <TextField
                 margin="normal"
                 required
@@ -26,10 +32,15 @@ const Form = ({ title, handleClick }) => {
                 autoFocus
                 variant="outlined"
                 value={login}
-                onChange={(e) => setLogin(e.target.value)}
+                onChange={onChangeLog}
+
+            // для проверки пустого поля
+            // error={login === ""}
+            // helperText={login === "" ? 'Обязательно для заполнения!' : ' '}
             />
+
             <TextField
-                className='field-pass'
+                className="field-pass"
                 margin="normal"
                 required
                 fullWidth
@@ -40,23 +51,23 @@ const Form = ({ title, handleClick }) => {
                 autoComplete="current-password"
                 variant="outlined"
                 value={pass}
-                onChange={(e) => setPass(e.target.value)}
+                onChange={onChangePass}
+
+                // для проверки пустого поля
+                // error={pass === ""}
+                // helperText={pass === "" ? 'Обязательно для заполнения!' : ' '}
 
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end">
                             <IconButton
-                                className='icon-pass'
+                                className="icon-pass"
                                 onClick={() => setShowPassword(!showPassword)}
                                 edge="end">
                                 {showPassword ?
-                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M8 13.078c4.418 0 8-5 8-5s-3.582-5-8-5-8 5-8 5 3.582 5 8 5zm0-2a3 3 0 100-6 3 3 0 000 6zm0-1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="#000"></path>
-                                    </svg>
+                                    <img src={Invisible} alt="invisible" />
                                     :
-                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M15.406 1.125l-3.229 3.229C14.47 5.834 16 7.969 16 7.969s-3.582 5-8 5c-1.244 0-2.422-.397-3.472-.966l-3.372 3.372-.707-.707 3.2-3.2C1.451 9.997 0 7.969 0 7.969s3.582-5 8-5c1.17 0 2.28.351 3.282.867L14.7.418l.707.707zM8 4.969c.61 0 1.179.182 1.653.496L8.546 6.57a1.5 1.5 0 00-1.943 1.943L5.495 9.622A3 3 0 018 4.968zm-.742 4.304l-1.08 1.08a3 3 0 004.205-4.205l-1.079 1.08a1.5 1.5 0 01-2.046 2.046z" fill="#000"></path>
-                                    </svg>
+                                    <img src={Visible} alt="visible" />
                                 }
                             </IconButton>
                         </InputAdornment>
@@ -69,7 +80,7 @@ const Form = ({ title, handleClick }) => {
                 variant="contained"
                 color="primary"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={() => handleClick(login, pass)}
+                onClick={onClick}
             >
                 {title}
             </Button>
